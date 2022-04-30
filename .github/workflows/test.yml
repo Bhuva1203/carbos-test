@@ -1,0 +1,19 @@
+name: Update CODEOWNERS
+on:   
+  pull_request:
+    branches: [ main, develop, feature/* ]
+jobs:
+  update-codeowners:
+    runs-on: ubuntu-20.04
+    name: Update CODEOWNERS
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Update CODEOWNERS file
+        uses: gmolau/codeowners@v0.1.5
+
+      - name: Commit CODEOWNERS file
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: Update CODEOWNERS file (CODEOWNERS Bot)
