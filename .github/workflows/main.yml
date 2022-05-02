@@ -34,6 +34,13 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: autolabeler-codeowners
+  # You may pin to the exact commit or the version.
+  # uses: pratikmallya/autolabeler-codeowners@cca9694441f25116fcb5d5f16757a6e43e5c4375
+        uses: pratikmallya/autolabeler-codeowners@0.1
+        with:
+    # Github Oauth Token for the repo
+          githubToken: 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
       - name: GitHub CODEOWNERS Validator
   # You may pin to the exact commit or the version.
   # uses: mszostok/codeowners-validator@7f3f5e28c6d7b8dfae5731e54ce2272ca384592f
