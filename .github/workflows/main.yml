@@ -40,7 +40,7 @@ jobs:
         uses: pratikmallya/autolabeler-codeowners@0.1
         with:
     # Github Oauth Token for the repo
-          githubToken: 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
+          githubToken: ${{ secrets.BHARATH_SECRET }}
       - name: GitHub CODEOWNERS Validator
   # You may pin to the exact commit or the version.
   # uses: mszostok/codeowners-validator@7f3f5e28c6d7b8dfae5731e54ce2272ca384592f
