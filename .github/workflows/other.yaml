@@ -4,8 +4,7 @@ on:
   pull_request_target:
     paths-ignore:
       - '**/CODEOWNERS'
-    branches:
-      - [ main, develop, feature/* ]
+    branches: [ main, develop, feature/* ]
     types:
       - ready_for_review
       - review_request_removed
