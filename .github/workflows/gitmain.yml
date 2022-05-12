@@ -1,4 +1,4 @@
-name: Check Files
+name: Main Files
 
 on:   
   pull_request:
