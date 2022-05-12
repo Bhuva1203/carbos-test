@@ -1,0 +1,21 @@
+name: Main Files
+
+on:   
+  pull_request:
+    branches: [ main, develop, feature/* ]
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    # only apply on unmerged pull requests
+    steps:
+    - name: checkout code
+      uses: actions/checkout@v3
+    - name: CODEOWNERS action
+  # You may pin to the exact commit or the version.d
+  # uses: SvanBoxel/codeowners-action@bcc0924ce24bcfa965e6c1d79b351f69e9218fc8
+      uses: SvanBoxel/codeowners-action@2.1
+      with:
+    # Location of codeowners file
+       path: .github/CODEOWNERS
+    # Output how version controlled files match CODEOWNERS rules
+       file_match_info: true
