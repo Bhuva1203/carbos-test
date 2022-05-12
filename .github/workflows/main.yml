@@ -1,18 +1,8 @@
-name: codeowners
-
+name: Check Files
 
 on:   
   pull_request:
     branches: [ main, develop, feature/* ]
-    paths-ignore:
-      - 'LICENSE'
- 
-#    types:
- #     - ready_for_review
-  #    - review_request_removed
-   #   - reopened
-    #  - labeled
-
 jobs:
   update:
     runs-on: ubuntu-latest
