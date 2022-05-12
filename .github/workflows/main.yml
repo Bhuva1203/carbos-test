@@ -40,20 +40,20 @@ jobs:
 
          #distribution: # optional, default is 25
     # This defines the path to the CODEOWNERS file.
-The default uses the path to the `.github` directory.
+##The default uses the path to the `.github` directory.
 
          path: .github/CODEOWNERS
     # By default, this action checks all files in the root, but groups recursive files into their parent directories.
-Set this input to any non-zero value (e.g. `true`) to enable full coverage of all recursive files.
+#Set this input to any non-zero value (e.g. `true`) to enable full coverage of all recursive files.
 
       #   granular: # optional, default is 
     # By default, this action uses the email addresses of users.
-Set this input to any non-zero value (e.g. `true`) to derive the GitHub usernames and use them instead.
+#Set this input to any non-zero value (e.g. `true`) to derive the GitHub usernames and use them instead.
 
          username: Bhuva1203
     # A GitHub token has to be set if `inputs.username` is enabled.
-This is necessary because the GitHub API has a rate limit.
-The default token has sufficient permissions for the API.
+#This is necessary because the GitHub API has a rate limit.
+#The default token has sufficient permissions for the API.
 
          #token: # optional, default is ${{ github.token }}
 
