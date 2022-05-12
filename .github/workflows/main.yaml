@@ -3,7 +3,7 @@ name: codeowners
 on:
   pull_request_target:
     paths-ignore:
-      - '**/CODEOWNERS'
+      - 'LICENSE'
     branches: [ main, develop, feature/* ]
 #    types:
  #     - ready_for_review
