@@ -17,40 +17,15 @@ jobs:
   update:
     runs-on: ubuntu-latest
     # only apply on unmerged pull requests
-    if: github.event.pull_request.merged_by == ''
     steps:
     - name: checkout code
       uses: actions/checkout@v3
+    - name: CODEOWNERS action
+  # You may pin to the exact commit or the version.
+  # uses: SvanBoxel/codeowners-action@bcc0924ce24bcfa965e6c1d79b351f69e9218fc8
+      uses: SvanBoxel/codeowners-action@2.1
       with:
-        # this only makes sure that forks are built as well
-        repository: ${{ github.event.pull_request.head.repo.full_name }}
-        ref: ${{ github.head_ref }}
-        # the fetch depth 0 (=all) is important
-        fetch-depth: 0
-        # the token is necessary for checks to rerun after auto commit
-        token: ${{ secrets.BHARATH_SECRET }}
-    - name: update code owners
-      uses: gofunky/update-codeowners@v0.3.1
-      with:
-        distribution: 25
-        username: true
-    - uses: mszostok/codeowners-validator@v0.5.1
-      id: validation
-      if: ${{ steps.committed.outputs.changes_detected == 'true' }}
-      with:
-        checks: files,owners,duppatterns
-        # the token is required only if the `owners` check is enabled
-        github_access_token: ${{ secrets.BHARATH_SECRET }}
-    - name: commit changed files
-      id: committed
-      if: ${{ steps.committed.outputs.changes_detected == 'true' }}
-      uses: stefanzweifel/git-auto-commit-action@v4.7.2
-      with:
-        commit_message: 'chore(meta): update code owners'
-        file_pattern: .github/CODEOWNERS
-    - uses: christianvuerings/add-labels@v1.1
-      if: ${{ steps.committed.outputs.changes_detected == 'true' }}
-      with:
-        labels: owned
-      env:
-        GITHUB_TOKEN: ${{ secrets.BHARATH_SECRET }}
+    # Location of codeowners file
+       path: .github/CODEOWNERS
+    # Output how version controlled files match CODEOWNERS rules
+       file_match_info: true
