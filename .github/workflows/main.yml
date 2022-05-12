@@ -28,16 +28,44 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
+        
+      - name: update codeowners
+  # You may pin to the exact commit or the version.
+  # uses: gofunky/update-codeowners@b4862c2fc6d6aaf5bd4c18ee761e89e23662c747
+        uses: gofunky/update-codeowners@v0.3.2
+        with:
+    # The distribution input defines the minimum percentage of code lines that are required for a contributor to being
+#considered a code owner.
+#Set it to any integer without the percent character to override the default.
+
+         #distribution: # optional, default is 25
+    # This defines the path to the CODEOWNERS file.
+The default uses the path to the `.github` directory.
+
+         path: .github/CODEOWNERS
+    # By default, this action checks all files in the root, but groups recursive files into their parent directories.
+Set this input to any non-zero value (e.g. `true`) to enable full coverage of all recursive files.
+
+      #   granular: # optional, default is 
+    # By default, this action uses the email addresses of users.
+Set this input to any non-zero value (e.g. `true`) to derive the GitHub usernames and use them instead.
+
+         username: Bhuva1203
+    # A GitHub token has to be set if `inputs.username` is enabled.
+This is necessary because the GitHub API has a rate limit.
+The default token has sufficient permissions for the API.
+
+         #token: # optional, default is ${{ github.token }}
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-      - name: enforce-codeowner
+  #    - name: Run a multi-line script
+   #     run: |
+    #      echo Add other actions to build,
+     #     echo test, and deploy your project.
+  #    - name: enforce-codeowner
   # You may pin to the exact commit or the version.
   # uses: cuichenli/enforce-codeowner@a9109e36d2dae888b89379012aa494a2fd6e3136
-        uses: cuichenli/enforce-codeowner@v1.0.0
+  #      uses: cuichenli/enforce-codeowner@v1.0.0
     #    with:
     # Location of the codeowner file.
     #      CODEOWNERS_This PATH: # optional, default is .github/CODEOWNERS
